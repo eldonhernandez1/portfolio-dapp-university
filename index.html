@@ -11,33 +11,38 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:          #090b11;
-      --bg-s:        #10131e;
-      --bg-e:        #171c2d;
-      --accent:      #00d4aa;
-      --accent-dim:  rgba(0,212,170,.1);
-      --accent-glow: rgba(0,212,170,.25);
-      --text:        #dde3f0;
-      --text-m:      #7d8aa4;
-      --text-d:      #343e54;
-      --border:      #1b2033;
-      --border-l:    #242c42;
+      /* Ocean Blue Serenity — dark end */
+      --bg:          #071852;
+      --bg-s:        #0c2270;
+      --bg-e:        #122c90;
+      --accent:      #00c8e8;
+      --accent-dim:  rgba(0,200,232,.12);
+      --accent-glow: rgba(0,200,232,.28);
+      --text:        #e0f5fc;
+      --text-m:      #70b8d8;
+      --text-d:      #2a4278;
+      --border:      #122060;
+      --border-l:    #1c3080;
+      --btn-text:    #050e30;
       --nav-h:       68px;
       --r:           12px;
       --ease:        cubic-bezier(.4,0,.2,1);
       --t:           .3s;
     }
     [data-theme="light"] {
-      --bg:     #f3f5fb;
-      --bg-s:   #ffffff;
-      --bg-e:   #e8ecf6;
-      --accent: #009b7d;
-      --accent-dim: rgba(0,155,125,.1);
-      --text:   #0c101c;
-      --text-m: #536077;
-      --text-d: #aab2c0;
-      --border: #dde3f0;
-      --border-l: #e8ecf6;
+      /* Ocean Blue Serenity — light end */
+      --bg:          #eef9fd;
+      --bg-s:        #ffffff;
+      --bg-e:        #ccedf8;
+      --accent:      #0568a0;
+      --accent-dim:  rgba(5,104,160,.1);
+      --accent-glow: rgba(5,104,160,.2);
+      --text:        #071030;
+      --text-m:      #1a3868;
+      --text-d:      #4878a8;
+      --border:      #98d4ee;
+      --border-l:    #bce8f8;
+      --btn-text:    #ffffff;
     }
 
     html { scroll-behavior: smooth; font-size: 16px; }
@@ -72,12 +77,12 @@
       transition: background var(--t) var(--ease), border-color var(--t) var(--ease);
     }
     nav.scrolled {
-      background: rgba(9,11,17,.84);
+      background: rgba(7,24,82,.88);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
-    [data-theme="light"] nav.scrolled { background: rgba(243,245,251,.88); }
+    [data-theme="light"] nav.scrolled { background: rgba(238,249,253,.92); }
 
     .nav-logo {
       font-family: 'JetBrains Mono', monospace;
@@ -232,7 +237,7 @@
       transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), border-color var(--t), color var(--t);
     }
     .btn-fill {
-      background: var(--accent); color: #050710;
+      background: var(--accent); color: var(--btn-text);
       font-weight: 600;
     }
     .btn-fill:hover {
@@ -1065,6 +1070,26 @@
 </footer>
 
 <script>
+  // ── Favicon from headshot
+  (function() {
+    const img = new Image();
+    img.onload = function() {
+      const c = document.createElement('canvas');
+      c.width = c.height = 64;
+      const ctx = c.getContext('2d');
+      ctx.beginPath();
+      ctx.arc(32, 32, 32, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.clip();
+      ctx.drawImage(img, 0, 0, 64, 64);
+      const link = document.createElement('link');
+      link.rel = 'icon'; link.type = 'image/png';
+      link.href = c.toDataURL('image/png');
+      document.head.appendChild(link);
+    };
+    img.src = 'headshot.jpg';
+  })();
+
   // ── Theme toggle
   const themeBtn = document.getElementById('themeBtn');
   const root = document.documentElement;
