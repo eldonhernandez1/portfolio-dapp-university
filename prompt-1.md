@@ -33,3 +33,5 @@ Include smooth scroll navigation with a sticky header, and subtle fade-in animat
 ## Goal
 
 Make the final result look like something a real senior engineer would proudly share.
+
+Make sure to use the frontend design skill.
