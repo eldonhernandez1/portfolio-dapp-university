@@ -1065,11 +1065,14 @@
 
 <!-- ── FOOTER ── -->
 <footer>
-  <p class="footer-copy">© 2025 Eldon Hernandez</p>
+  <p class="footer-copy">© <span id="year"></span> Eldon Hernandez</p>
   <a href="#hero" class="footer-top">↑ back to top</a>
 </footer>
 
 <script>
+  // ── Auto year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
   // ── Favicon from headshot
   (function() {
     const img = new Image();
