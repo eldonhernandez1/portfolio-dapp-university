@@ -6,7 +6,9 @@
       "Bash(git commit -m ' *)",
       "Bash(git push *)",
       "Bash(npx --version)",
-      "Bash(python -m http.server 8080)"
+      "Bash(python -m http.server 8080)",
+      "Bash(vercel *)",
+      "Bash(npm install *)"
     ]
   },
   "enabledPlugins": {
